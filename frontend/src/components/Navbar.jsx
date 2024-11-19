@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+// YOU GUYS NEVER TOLD ME REACT IS THIS SWEET!!!!!!!!!!
+// SLEEK SITE - IM NEVER BUILDING SITES TRADITIONALLY
+
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(
@@ -25,12 +28,12 @@ const Navbar = () => {
       </ul>
       {/* Nav Links */}
       <div className="space-x-4">
-        <button className="px-4 py-2 text-primary hover:underline">Explore</button>
+        <button className="px-4 py-2 bg-primary text-white rounded-md hover:bg-secondary">Explore</button>
         <button
           onClick={() => setIsModalOpen(true)}
           className="px-4 py-2 bg-primary text-white rounded-md hover:bg-secondary"
         >
-          Join
+          Join Us
         </button>
         <button onClick={toggleTheme} className="ml-4">
           {darkMode ? "🌙" : "☀️"}

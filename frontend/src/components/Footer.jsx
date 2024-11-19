@@ -73,6 +73,9 @@ const Footer = () => {
       {/* Footer Bottom */}
       <div className="mt-8 border-t border-gray-700 pt-4 text-center text-sm">
         <p>&copy; 2024 Eventify. All rights reserved.</p>
+        <div className="text-lg font-bold">
+          <h1 className={`text-2xl ${companyNameColor} transition-all duration-500`}>Next-space</h1>
+        </div>
       </div>
     </footer>
   );
