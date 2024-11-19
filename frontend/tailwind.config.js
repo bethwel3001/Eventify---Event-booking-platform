@@ -14,11 +14,18 @@ module.exports = {
         fadeIn: "fadeIn 1s ease-in-out",
         // fadeOut: "fadeOut 1s ease-in-out",
       },
+      animation: {
+        fadeIn: 'fadeIn 0.5s ease-out'
+      },
       keyframes: {
         fadeIn: {
           "0%": { opacity: "0", transform: "translateY(10px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        fadeIn: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        }
       },
       colors: {
         primary: "#0077ff",
