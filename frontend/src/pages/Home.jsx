@@ -39,6 +39,7 @@ const Home = () => {
     </a>
   </div>
 </header>
+
     </div>
   );
 };

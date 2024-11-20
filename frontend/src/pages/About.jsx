@@ -65,7 +65,6 @@ const About = () => {
           initial="hidden"
           animate="visible"
         >
-          Why Eventify?
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -80,6 +79,14 @@ const About = () => {
             <p className="text-gray-100">
               Find events tailored to your interests and location.
             </p>
+             {/* Join Now Button */}
+      <motion.button
+        className="mt-4 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-110 hover:bg-blue-600"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        Join Now
+      </motion.button>
           </motion.div>
 
           {/* Feature Card 2 */}
@@ -91,8 +98,16 @@ const About = () => {
           >
             <h3 className="font-bold text-xl text-white">Host Effortlessly</h3>
             <p className="text-gray-100">
-              Plan, organize, and host events with ease.
+              Plan, organize, and host events with ease, try and testify.
             </p>
+             {/* Join Now Button */}
+      <motion.button
+        className="mt-4 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-110 hover:bg-blue-600"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        Join Now
+      </motion.button>
           </motion.div>
 
           {/* Feature Card 3 */}
@@ -106,6 +121,14 @@ const About = () => {
             <p className="text-gray-100">
               Foster community bonds through shared experiences.
             </p>
+             {/* Join Now Button */}
+      <motion.button
+        className="mt-4 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-110 hover:bg-blue-600"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        Join Now
+      </motion.button>
           </motion.div>
         </div>
       </section>

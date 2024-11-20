@@ -26,8 +26,9 @@ const Navbar = () => {
       <div className="text-xl font-bold dark:text-white">Eventify</div>
       <ul className="hidden md:flex gap-4 text-gray-700 dark:text-gray-300">
         <li><a href="/">Home</a></li>
+        <li><a href="../pages">About</a></li>
+        <li><a href="">Partners</a></li>
         <li><a href="/explore">Explore</a></li>
-        <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>
       </ul>
       {/* Nav Links */}
@@ -73,11 +74,11 @@ const Navbar = () => {
             <a href="/" className="block text-gray-600 px-4 py-2 hover:bg-gray-100">
               Home
             </a>
-            <a href="/explore" className="block text-gray-600 px-4 py-2 hover:bg-gray-100">
-              Explore
-            </a>
             <a href="/about" className="block text-gray-600 px-4 py-2 hover:bg-gray-100">
               About
+            </a>
+            <a href="/explore" className="block text-gray-600 px-4 py-2 hover:bg-gray-100">
+              Explore
             </a>
             <a href="/contact" className="block text-gray-600 px-4 py-2 hover:bg-gray-100">
               Contact

@@ -23,13 +23,10 @@ function App() {
 
       {/* Render the Home, About, Contact, and Explore pages */}
       <Home />
-      {/* Partners section */}
-      <Partners />
       <About />
+      <Partners />
       <Contact />
       <Explore />
-      
-      {/* Render the Footer component */}
       <Footer />
     </div>
   );
