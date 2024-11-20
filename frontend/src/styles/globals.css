@@ -7,3 +7,4 @@ body {
     background-color: #f9f9f9;
     color: #333;
   }
+  @import '@fortawesome/fontawesome-free/css/all.min.css';
