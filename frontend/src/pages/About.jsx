@@ -24,7 +24,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className="bg-white dark:bg-gray-900 min-h-screen py-8">
+    <div id="about" className="bg-white dark:bg-gray-900 min-h-screen py-8">
       <motion.h1
         className="text-4xl font-bold text-center mb-8 dark:text-white"
         variants={fadeIn}

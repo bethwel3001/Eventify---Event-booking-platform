@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Link } from "react-scroll";
 // YOU GUYS NEVER TOLD ME REACT IS THIS SWEET!!!!!!!!!!
 // SLEEK SITE - IM NEVER BUILDING SITES TRADITIONALLY
 
@@ -25,11 +25,77 @@ const Navbar = () => {
       {/* Logo */}
       <div className="text-xl font-bold dark:text-white">Eventify</div>
       <ul className="hidden md:flex gap-4 text-gray-700 dark:text-gray-300">
-        <li><a href="/">Home</a></li>
-        <li><a href="../pages">About</a></li>
-        <li><a href="">Partners</a></li>
-        <li><a href="/explore">Explore</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li>
+        <Link
+            to="home"
+            smooth={true}
+            duration={500}
+            activeClass="text-blue-500 font-bold"
+            className="cursor-pointer hover:text-blue-500"
+          >
+            Home
+          </Link>
+        </li>
+        <li>
+        <Link
+            to="about"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer hover:text-blue-500"
+          >
+            About
+          </Link>
+        </li>
+        <li>
+        <Link
+            to="partners"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer hover:text-blue-500"
+          >
+            Partners
+          </Link>
+        </li>
+        <li>
+        <Link
+            to="explore"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer hover:text-blue-500"
+          >
+            Explore
+          </Link>
+        </li>
+        <li>
+        <Link
+            to="testimonials"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer hover:text-blue-500"
+          >
+            Testimonials
+          </Link>
+        </li>
+        <li>
+        <Link
+            to="contact"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer hover:text-blue-500"
+          >
+            Contact
+          </Link>
+        </li>
+        <li>
+        <Link
+            to="faqs"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer hover:text-blue-500"
+          >
+            FAQ's
+          </Link>
+        </li>
       </ul>
       {/* Nav Links */}
       <div className="space-x-4">
@@ -68,24 +134,69 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Dropdown */}
-        {isOpen && (
-          <div className="md:hidden">
-            <a href="/" className="block text-gray-600 px-4 py-2 hover:bg-gray-100">
-              Home
-            </a>
-            <a href="/about" className="block text-gray-600 px-4 py-2 hover:bg-gray-100">
-              About
-            </a>
-            <a href="/explore" className="block text-gray-600 px-4 py-2 hover:bg-gray-100">
-              Explore
-            </a>
-            <a href="/contact" className="block text-gray-600 px-4 py-2 hover:bg-gray-100">
-              Contact
-            </a>
+      {/* Mobile Dropdown */}
+{isOpen && (
+ <div
+ className={`md:hidden bg-white shadow-lg p-4 space-y-4 fixed top-16 left-4 right-4 rounded-xl transition-transform duration-300 ${
+   isOpen ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"
+ }`}
+>
 
-          </div>)}
-      {/* </div> */}
+    {/* Close Button */}
+    <button
+      onClick={() => setIsOpen(false)}
+      className="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
+    >
+      ✕
+    </button>
+
+    <Link
+      to="home"
+      smooth={true}
+      duration={500}
+      className="block cursor-pointer hover:text-blue-500"
+      onClick={() => setIsOpen(false)}
+    >
+      Home
+    </Link>
+    <Link
+      to="about"
+      smooth={true}
+      duration={500}
+      className="block cursor-pointer hover:text-blue-500"
+      onClick={() => setIsOpen(false)}
+    >
+      About
+    </Link>
+    <Link
+      to="testimonials"
+      smooth={true}
+      duration={500}
+      className="block cursor-pointer hover:text-blue-500"
+      onClick={() => setIsOpen(false)}
+    >
+      Testimonials
+    </Link>
+    <Link
+      to="faqs"
+      smooth={true}
+      duration={500}
+      className="block cursor-pointer hover:text-blue-500"
+      onClick={() => setIsOpen(false)}
+    >
+      FAQs
+    </Link>
+    <Link
+      to="contact"
+      smooth={true}
+      duration={500}
+      className="block cursor-pointer hover:text-blue-500"
+      onClick={() => setIsOpen(false)}
+    >
+      Contact
+    </Link>
+  </div>
+)}
 
       {/* Modal for Login/Signup */}
       {isModalOpen && (

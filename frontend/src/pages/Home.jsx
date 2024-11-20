@@ -3,7 +3,7 @@ import Button from "../components/Button";
 
 const Home = () => {
   return (
-    <div className="bg-white dark:bg-gray-900">
+    <div id="home" className="bg-white dark:bg-gray-900">
       {/* Hero Section */}
       <header className="h-screen flex flex-col items-center justify-center bg-gradient-to-r from-primary to-secondary text-white">
   {/* Main Heading */}

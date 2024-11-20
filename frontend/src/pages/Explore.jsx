@@ -25,7 +25,7 @@ const Explore = () => {
     }
   ];
   return (
-    <div className="bg-white dark:bg-gray-900 min-h-screen flex flex-col justify-center items-center py-8 animate-fadeIn">
+    <div id="explore" className="bg-white dark:bg-gray-900 min-h-screen flex flex-col justify-center items-center py-8 animate-fadeIn">
       <h1 className="text-4xl font-extrabold text-center mb-8 dark:text-white">
         Explore Events
       </h1>

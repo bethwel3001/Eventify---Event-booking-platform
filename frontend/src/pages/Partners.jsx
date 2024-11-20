@@ -17,7 +17,7 @@ const PartnersSection = () => {
   ];
 
   return (
-    <section className="bg-gradient-to-r from-blue-500 via-purple-600 to-blue-500 py-10 px-4 text-center overflow-hidden h-[300px]">
+    <section id='partners' className="bg-gradient-to-r from-blue-500 via-purple-600 to-blue-500 py-10 px-4 text-center overflow-hidden h-[300px]">
       <h2 className="text-3xl font-bold text-white mb-6">Join Our Esteemed Partners</h2>
       <p className="text-gray-200 mb-10">
         Collaborate with industry leaders and be part of a thriving community.
