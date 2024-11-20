@@ -17,7 +17,7 @@ const PartnersSection = () => {
         Collaborate with industry leaders and be part of a thriving community.
       </p>
       <div className="relative w-full overflow-x-hidden">
-        <div className="animate-scroll flex space-x-16">
+        <div className="animate-scroll flex space-x-16 px-4">
           {partners.map((partner, index) => (
             <div
               key={index}
