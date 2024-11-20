@@ -39,41 +39,6 @@ const Home = () => {
     </a>
   </div>
 </header>
-
-
-      {/* Features Section */}
-      <section id="features" className="py-16 px-4">
-        <h2 className="text-3xl font-bold text-center mb-8 dark:text-white">
-          Why Eventify?
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
-            <h3 className="font-bold text-xl dark:text-white">Easy Event Discovery</h3>
-            <p className="text-gray-600 dark:text-gray-400">
-              Find events tailored to your interests and location.
-            </p>
-          </div>
-          <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
-            <h3 className="font-bold text-xl dark:text-white">Host Effortlessly</h3>
-            <p className="text-gray-600 dark:text-gray-400">
-              Plan, organize, and host events with ease.
-            </p>
-          </div>
-          <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
-            <h3 className="font-bold text-xl dark:text-white">Engage Communities</h3>
-            <p className="text-gray-600 dark:text-gray-400">
-              Foster community bonds through shared experiences.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section id="cta" className="bg-primary text-white py-16 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Join Eventify Today</h2>
-        <p className="text-lg mb-6">Sign up to explore or host amazing events!</p>
-        <Button text="Sign Up" href="/signup" primary />
-      </section>
     </div>
   );
 };

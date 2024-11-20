@@ -7,21 +7,21 @@ const Explore = () => {
       title: "Community Meetup",
       date: "2024-12-01",
       location: "Downtown",
-      image: "https://images.unsplash.com/photo-1522543558187-768b6df7c25c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" // Add a unique image URL
+      image: "https://images.unsplash.com/photo-1522543558187-768b6df7c25c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
     },
     {
       id: 2,
       title: "Tech Conference",
       date: "2024-12-05",
       location: "City Hall",
-      image: "https://images.unsplash.com/photo-1582192493926-93f4847e1323?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" // Add a unique image URL
+      image: "https://images.unsplash.com/photo-1582192493926-93f4847e1323?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
     },
     {
       id: 3,
       title: "Charity Run",
       date: "2024-12-10",
       location: "Central Park",
-      image: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" // Add a unique image URL
+      image: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
     }
   ];
   return (
@@ -38,7 +38,7 @@ const Explore = () => {
       {/* Event Image */}
       <div className="w-full h-[150px] bg-gray-300 rounded-t-lg mb-4">
         <img
-          src={event.image} // Use the event image from the dummyEvents array
+          src={event.image} // Using the event image from the dummyEvents array
           alt={event.title}
           className="w-full h-full object-cover rounded-t-lg"
         />
@@ -65,7 +65,7 @@ const Explore = () => {
         </button>
       </div>
     </div>
-  ))}
+    ))}
 </div>
     </div>
   );
