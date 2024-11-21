@@ -93,8 +93,8 @@ To set up and run Eventify locally, you'll need the following:
 **Thank you for using Eventify!**
 ---
 **Happy Event Planning!**
-**Bethwel Kiplagat**
-*Screenshot of the Eventify coming soon ...*
+- **Bethwel Kiplagat**
+- *Screenshot of the Eventify coming soon ...*
 
 
 
