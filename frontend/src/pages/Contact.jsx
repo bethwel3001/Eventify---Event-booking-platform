@@ -39,10 +39,10 @@ const Contact = () => {
 
       {/* Right Column: Join Our Community */}
       <div
-        className="md:w-1/2 flex flex-col items-center justify-center px-4 bg-cover bg-center bg-gray-800 rounded-lg shadow-lg"
+        className="md:w-1/2 flex flex-col items-center justify-center px-4 bg-cover bg-center"
         style={
           {
-          backgroundImage: "url('https://images.unsplash.com/photo-1442504028989-ab58b5f29a4a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
+          backgroundImage: "url('')",
         }
       }>
         <h2 className="text-3xl font-bold text-white mb-4 text-center">Join Our Community</h2>
