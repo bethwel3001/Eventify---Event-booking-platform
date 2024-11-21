@@ -99,7 +99,6 @@ const Navbar = () => {
       </ul>
       {/* Nav Links */}
       <div className="space-x-4">
-        <button className="px-4 py-2 bg-primary text-white rounded-md hover:bg-secondary">Explore</button>
         <button
           onClick={() => setIsModalOpen(true)}
           className="px-4 py-2 bg-primary text-white rounded-md hover:bg-secondary"

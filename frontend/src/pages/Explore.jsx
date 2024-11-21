@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const Explore = () => {
   const dummyEvents = [
@@ -60,9 +61,11 @@ const Explore = () => {
         <button className="px-4 py-2 bg-blue-500 text-white font-medium rounded-lg transition duration-300 transform hover:scale-110 hover:bg-blue-600">
           Details
         </button>
-        <button className="px-4 py-2 bg-green-500 text-white font-medium rounded-lg transition duration-300 transform hover:scale-110 hover:bg-green-600">
+        <Link 
+        to={`/rsvp/${event.id}`} // Use the Link component to navigate
+        className="px-4 py-2 bg-green-500 text-white font-medium rounded-lg transition duration-300 transform hover:scale-110 hover:bg-green-600">
           RSVP
-        </button>
+        </Link>
       </div>
     </div>
     ))}
