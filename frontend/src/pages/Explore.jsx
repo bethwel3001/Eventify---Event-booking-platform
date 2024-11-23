@@ -1,7 +1,9 @@
-import React from "react";
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 const Explore = () => {
+  const [events, setEvents] = useState([]);
+  const navigate = useNavigate();
   const dummyEvents = [
     {
       id: 1,
@@ -25,6 +27,21 @@ const Explore = () => {
       image: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
     }
   ];
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/events');
+        setEvents(response.data);
+      } catch (error) {
+        console.error('Error fetching events:', error);
+      }
+    };
+    fetchEvents();
+  }, []);
+  const handleRSVP = (eventId) => {
+    navigate(`/dashboard`, { state: { eventId } }); // Pass eventId to Dashboard
+  };
   return (
     <div id="explore" className="bg-white dark:bg-gray-900 min-h-screen flex flex-col justify-center items-center py-8 animate-fadeIn">
       <h1 className="text-4xl font-extrabold text-center mb-8 dark:text-white">
@@ -61,11 +78,9 @@ const Explore = () => {
         <button className="px-4 py-2 bg-blue-500 text-white font-medium rounded-lg transition duration-300 transform hover:scale-110 hover:bg-blue-600">
           Details
         </button>
-        <Link 
-        to={`/rsvp/${event.id}`} // Use the Link component to navigate
-        className="px-4 py-2 bg-green-500 text-white font-medium rounded-lg transition duration-300 transform hover:scale-110 hover:bg-green-600">
-          RSVP
-        </Link>
+        <button onClick={() => handleRSVP(event.id)} className="px-4 py-2 bg-green-500 text-white font-medium rounded-lg transition duration-300 transform hover:scale-110 hover:bg-orange-600">
+              RSVP
+            </button>
       </div>
     </div>
     ))}

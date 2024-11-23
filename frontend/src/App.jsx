@@ -4,7 +4,6 @@ import './styles/globals.css';
 // importing fontawesome for global availability
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/700.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // importing the App component and its dependencies
 import React from 'react';
@@ -17,7 +16,8 @@ import Explore from './pages/Explore';
 import Partners from './pages/Partners';
 import Testimonials from './pages/Testimonials';
 import Faqs from './pages/Faqs';
-
+import Dashboard from './pages/dashboard';
+import Host from './pages/Host';
 function App() {
   return (
     <div>
