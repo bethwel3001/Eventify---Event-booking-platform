@@ -3,6 +3,7 @@ from models import db, Event
 
 event_blueprint = Blueprint('events', __name__)
 
+
 # Fetch all events
 @event_blueprint.route('/', methods=['GET'])
 def get_events():
@@ -21,6 +22,15 @@ def get_events():
     ]
     return jsonify(event_list)
 
+event_blueprint = Blueprint('events', __name__)
+
+@event_blueprint.route('/create', methods=['POST'])
+def create_event():
+    data = request.json
+    event = Event(name=data['name'], date=data['date'], location=data['location'])
+    db.session.add(event)
+    db.session.commit()
+    return jsonify({'message': 'Event created successfully'}), 201
 # Host a new event
 @event_blueprint.route('/host', methods=['POST'])
 def host_event():
