@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-scroll";
 // YOU GUYS NEVER TOLD ME REACT IS THIS SWEET!!!!!!!!!!
 // SLEEK SITE - IM NEVER BUILDING SITES TRADITIONALLY
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,9 +19,48 @@ const Navbar = () => {
   };
   
   // Var for login / signup popup
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);  
   const [isOpen, setIsOpen] = useState(false);
 
+  const [formData, setFormData] = useState({ name: '', email: '', password: '', confirmPassword: '' });
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:5000/login', {
+        email: formData.email,
+        password: formData.password,
+      });
+      alert(response.data.message);
+      navigate('/dashboard');
+    } catch (error) {
+      alert(error.response?.data?.message || 'Login failed');
+    }
+  };
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    if (formData.password !== formData.confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+    try {
+      const response = await axios.post('http://localhost:5000/signup', {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+      });
+      alert(response.data.message);
+      setIsLogin(true);
+    } catch (error) {
+      alert(error.response?.data?.message || 'Signup failed');
+    }
+  };
   return (
     <nav className="bg-white dark:bg-gray-800 shadow-md p-4 flex justify-between items-center">
       {/* Logo */}
@@ -210,11 +251,12 @@ const Navbar = () => {
       
           {/* Sign Up Form */}
           {isLogin ? (
-            <form>
+            <form onSubmit={handleLogin}>
               <input
                 type="email"
                 placeholder="Email"
                 className="w-full mb-4 p-2 rounded-md border dark:bg-gray-800 dark:text-white"
+                onChange={handleChange}
               />
               <input
                 type="password"
@@ -224,6 +266,7 @@ const Navbar = () => {
               <button
                 type="submit"
                 className="w-full bg-primary text-white py-2 rounded-md hover:bg-secondary"
+                onChange={handleChange}
               >
                 Login
               </button>
@@ -238,7 +281,7 @@ const Navbar = () => {
               </p>
             </form>
           ) : (
-            <form>
+            <form onSubmit={handleSignup}>
               <input
                 type="text"
                 placeholder="Name"
@@ -248,16 +291,19 @@ const Navbar = () => {
                 type="email"
                 placeholder="Email"
                 className="w-full mb-4 p-2 rounded-md border dark:bg-gray-800 dark:text-white"
+                onChange={handleChange}
               />
               <input
                 type="password"
                 placeholder="Password"
                 className="w-full mb-4 p-2 rounded-md border dark:bg-gray-800 dark:text-white"
+                onChange={handleChange}
               />
               <input
                 type="password"
                 placeholder="Confirm Password"
                 className="w-full mb-4 p-2 rounded-md border dark:bg-gray-800 dark:text-white"
+                onChange={handleChange}
               />
               <button
                 type="submit"
