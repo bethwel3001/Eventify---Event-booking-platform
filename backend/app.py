@@ -1,11 +1,15 @@
-from flask import Flask, request, jsonify, render_template, session, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
 from models import db  # Import 'db' from models
 from flask_migrate import Migrate
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 
+# Mock database for simplicity
+users = {
+    "user@example.com": "password123"
+}
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -44,41 +48,37 @@ def events():
     # Render the dashboard or events page
     return render_template('dashboard.html')
 
-@app.route('/dashboard', methods=['GET'])
-def dashboard():
-    return render_template('dashboard.html')
-
 ## Authentication Routes
-@app.route('/signup', methods=['POST'])
-def signup():
-    """Handle user registration."""
-    data = request.json
-    if User.query.filter_by(email=data['email']).first():
-        return jsonify({'message': 'Email already exists'}), 400
-
-    hashed_password = generate_password_hash(data['password'], method='pbkdf2:sha256')
-    user = User(username=data['name'], email=data['email'], password=hashed_password)
-    db.session.add(user)
-    db.session.commit()
-     # Redirect to dashboard after signup
-    return redirect(url_for('dashboard'))
-
 @app.route('/login', methods=['POST'])
 def login():
-    """Handle user login."""
-    data = request.json
-    user = User.query.filter_by(email=data['email']).first()
-    if user and check_password_hash(user.password, data['password']):
-        session['user_id'] = user.id  # Store user ID in session
-        return redirect('dashboard')
-    return jsonify({'message': 'Invalid credentials'}), 401
+    email = request.form.get('email')
+    password = request.form.get('password')
+    if email in users and users[email] == password:
+        session['user'] = email  # Save the user in the session
+        return jsonify({"redirect_url": url_for('dashboard'), "message": f"Welcome, {email.split('@')[0]}!"})
+    return jsonify({"error": "Invalid credentials"}), 401
 
-@app.route('/logout', methods=['GET'])
+@app.route('/signup', methods=['POST'])
+def signup():
+    email = request.form.get('email')
+    password = request.form.get('password')
+    if email in users:
+        return jsonify({"error": "User already exists"}), 409
+    users[email] = password
+    session['user'] = email  # Log in the new user
+    return jsonify({"redirect_url": url_for('dashboard'), "message": f"Welcome, {email.split('@')[0]}!"})
+
+@app.route('/dashboard')
+def dashboard():
+    if 'user' not in session:
+        return redirect(url_for('index'))  # Redirect to login if not logged in
+    username = session['user'].split('@')[0]  # Extract username
+    return render_template('dashboard.html', username=username)
+
+@app.route('/logout')
 def logout():
-    """Handle user logout."""
-    session.clear()
-    return jsonify({'message': 'Logged out successfully'}), 200
-
+    session.pop('user', None)
+    return redirect(url_for('http://127.0.0.1:3000'))
 # Blueprints for Event and RSVP Handling
 from routes.events_routes import event_blueprint
 from routes.rsvp_routes import rsvp_blueprint
