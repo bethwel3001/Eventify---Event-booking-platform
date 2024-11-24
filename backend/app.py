@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, session, redirect, url_for
+from flask import Flask, request, jsonify, render_template, session, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -6,9 +6,11 @@ from flask_cors import CORS
 from models import db  # Import 'db' from models
 from flask_migrate import Migrate
 
+
 # Initialize Flask app
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
+CORS(app)
 
 # Configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'  # Replace with your DB URI
@@ -36,6 +38,16 @@ with app.app_context():
 @app.route('/')
 def home():
     return redirect("http://127.0.0.1:3000")  #frontend URL
+
+@app.route('/events')
+def events():
+    # Render the dashboard or events page
+    return render_template('dashboard.html')
+
+@app.route('/dashboard', methods=['GET'])
+def dashboard():
+    return render_template('dashboard.html')
+
 ## Authentication Routes
 @app.route('/signup', methods=['POST'])
 def signup():
@@ -48,7 +60,8 @@ def signup():
     user = User(username=data['name'], email=data['email'], password=hashed_password)
     db.session.add(user)
     db.session.commit()
-    return jsonify({'message': 'User created successfully'}), 201
+     # Redirect to dashboard after signup
+    return redirect(url_for('dashboard'))
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -57,7 +70,7 @@ def login():
     user = User.query.filter_by(email=data['email']).first()
     if user and check_password_hash(user.password, data['password']):
         session['user_id'] = user.id  # Store user ID in session
-        return jsonify({'message': 'Login successful', 'username': user.username}), 200
+        return redirect('dashboard')
     return jsonify({'message': 'Invalid credentials'}), 401
 
 @app.route('/logout', methods=['GET'])

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventify Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+    </style>
+</head>
+<body class="flex h-screen bg-gray-100">
+    <!-- Sidebar -->
+    <div class="w-1/5 bg-gray-800 text-white flex flex-col py-5">
+        <h2 class="text-2xl font-bold text-center mb-8">Eventify</h2>
+        <nav>
+            <button onclick="showContent('events')" class="w-full text-left px-5 py-2 hover:bg-gray-700">Events</button>
+            <button onclick="showContent('rsvpd')" class="w-full text-left px-5 py-2 hover:bg-gray-700">RSVPD</button>
+            <button onclick="showContent('eventify')" class="w-full text-left px-5 py-2 hover:bg-gray-700">Back to Eventify</button>
+            <button onclick="logout()" class="w-full text-left px-5 py-2 hover:bg-gray-700">Logout</button>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 p-10">
+        <div id="content" class="fade-in">
+            <h1 class="text-3xl font-bold mb-4">Welcome, <span id="username">[Name]</span>!</h1>
+            <p class="text-xl text-gray-600 fade-in">Welcome to Eventify</p>
+        </div>
+    </div>
+
+    <script>
+        const username = "Bethwel"; // Replace with dynamic username if needed
+        document.getElementById('username').textContent = username;
+
+        // Function to update content
+        function showContent(section) {
+            const content = document.getElementById('content');
+            content.classList.add('fade-in'); // Add animation
+            setTimeout(() => content.classList.remove('fade-in'), 2000);
+
+            switch (section) {
+                case 'events':
+                    content.innerHTML = `<h1 class="text-2xl font-bold mb-4">Your Events</h1>
+                        <p class="text-gray-600">Here are your scheduled events.</p>`;
+                    break;
+                case 'rsvpd':
+                    content.innerHTML = `<h1 class="text-2xl font-bold mb-4">RSVPD Events</h1>
+                        <p class="text-gray-600">Here are the events you've RSVPd to.</p>`;
+                    break;
+                case 'eventify':
+                    content.innerHTML = `<h1 class="text-3xl font-bold mb-4">Welcome, ${username}!</h1>
+                        <p class="text-xl text-gray-600 fade-in">Welcome to Eventify</p>`;
+                    break;
+                default:
+                    content.innerHTML = `<h1 class="text-3xl font-bold mb-4">Welcome, ${username}!</h1>
+                        <p class="text-xl text-gray-600 fade-in">Welcome to Eventify</p>`;
+            }
+        }
+
+        // Function for Logout
+        function logout() {
+            alert("You have been logged out!");
+            window.location.href = "/"; // Redirect to home or login page
+        }
+    </script>
+</body>
+</html>
