@@ -31,8 +31,9 @@ const Home = () => {
     </a>
     
     {/* Host an Event Button */}
+    {/* i want it modified to open another page events.jsx, where a user can   create an event and share it with others by copying a link,  */}
     <a
-      href="#dashboard"
+      href=""
       className="text-lg md:text-xl font-semibold px-6 py-3 border-2 border-white text-white rounded-md shadow-lg transition-transform transform hover:scale-105 hover:bg-white hover:text-primary hover:shadow-2xl animate-fadeIn delay-1000"
     >
       Host an Event
