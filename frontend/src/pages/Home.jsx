@@ -1,7 +1,14 @@
 import React from "react";
 import Button from "../components/Button";
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const Home = () => {
+
+  // navigation to anither tab, from the button on Home.jsx, should open components/Events.jsx
+  const handleNavigation = () => {
+    window.open("/events", "_blank");
+  };
+  
   return (
     <div id="home" className="bg-white dark:bg-gray-900">
       {/* Hero Section */}
@@ -31,13 +38,13 @@ const Home = () => {
     </a>
     
     {/* Host an Event Button */}
-    {/* i want it modified to open another page events.jsx, where a user can   create an event and share it with others by copying a link,  */}
-    <a
-      href=""
-      className="text-lg md:text-xl font-semibold px-6 py-3 border-2 border-white text-white rounded-md shadow-lg transition-transform transform hover:scale-105 hover:bg-white hover:text-primary hover:shadow-2xl animate-fadeIn delay-1000"
+    {/* i want it modified to open another page events.jsx, where a user can  create an event and share it with others by copying a link,  */}
+    <Link
+onClick={handleNavigation}
+className="text-lg md:text-xl font-semibold px-6 py-3 border-2 border-white text-white rounded-md shadow-lg transition-transform transform hover:scale-105 hover:bg-white hover:text-primary hover:shadow-2xl animate-fadeIn delay-1000"
     >
       Host an Event
-    </a>
+    </Link>
   </div>
 </header>
 

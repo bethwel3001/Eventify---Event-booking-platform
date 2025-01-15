@@ -18,6 +18,8 @@ import Testimonials from './pages/Testimonials';
 import Faqs from './pages/Faqs';
 import Dashboard from './pages/dashboard';
 import Host from './pages/Host';
+import Events from './components/Events';
+
 function App() {
   return (
     <div>
