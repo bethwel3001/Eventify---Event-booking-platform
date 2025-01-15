@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../components/Button";
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-// import { Link } from "react-scroll";
+import { Link } from 'react-router-dom'; 
+
 
 const Home = () => {  
   return (
@@ -34,16 +34,14 @@ const Home = () => {
     
     {/* Host an Event Button */}
     {/* i want it modified to open another page events.jsx, where a user can  create an event and share it with others by copying a link,  */}
-    <Link
-    to="/Events"
-    smooth={true}
-    duration={500}
-    activeClass="text-blue-500 font-bold"     
-// onClick={handleNavigation}
-className="text-lg md:text-xl font-semibold px-6 py-3 border-2 border-white text-white rounded-md shadow-lg transition-transform transform hover:scale-105 hover:bg-white hover:text-primary hover:shadow-2xl animate-fadeIn delay-1000"
+    <a   
+  href="?page=events"
+  target="_blank"
+  rel="noopener noreferrer"    
+  className="text-lg md:text-xl font-semibold px-6 py-3 border-2 border-white text-white rounded-md shadow-lg transition-transform transform hover:scale-105 hover:bg-white hover:text-primary hover:shadow-2xl animate-fadeIn delay-1000"
     >
       Host an Event
-    </Link>
+    </a>
   </div>
 </header>
 
