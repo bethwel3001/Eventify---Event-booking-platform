@@ -8,7 +8,8 @@ import '@fontsource/inter/700.css';
 // importing the App component and its dependencies
 import React from 'react';
 import Navbar from './components/Navbar';  
-import Footer from './components/Footer';  
+import Footer from './components/Footer'; 
+import Events from './components/Events';
 import Home from './pages/Home';  
 import About from './pages/About';  
 import Contact from './pages/Contact';  
@@ -18,8 +19,6 @@ import Testimonials from './pages/Testimonials';
 import Faqs from './pages/Faqs';
 import Dashboard from './pages/dashboard';
 import Host from './pages/Host';
-import Events from './components/Events';
-
 function App() {
   return (
     <div>

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-scroll";
 // YOU GUYS NEVER TOLD ME REACT IS THIS SWEET!!!!!!!!!!
 // SLEEK SITE - IM NEVER BUILDING SITES TRADITIONALLY
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+// import axios from 'axios';
+// import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -129,6 +129,7 @@ const Navbar = () => {
             FAQ's
           </Link>
         </li>
+        
       </ul>
       {/* Nav Links */}
       <div className="space-x-4">
