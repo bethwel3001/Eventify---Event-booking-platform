@@ -4,6 +4,7 @@ const EventsDashboard = () => {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [events, setEvents] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   // Simulated data for events
   const mockEvents = [
@@ -36,6 +37,8 @@ const EventsDashboard = () => {
     },
     // Add more events here...
   ];
+// Simulated data for events
+
 
   // Simulate fetching data
   useEffect(() => {
@@ -59,22 +62,32 @@ const EventsDashboard = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      {/* Search Bar */}
-      <header className="flex flex-col md:flex-row justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold text-gray-800">Event Dashboard</h1>
-        <div className="flex items-center mt-4 md:mt-0 space-x-4">
-          <input
-            type="text"
-            placeholder="Search events..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full md:w-80 p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
-          />
-          <button className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition">
-            Search
-          </button>
+    <div className="min-h-screen bg-gray-100 p-6 relative">
+      {/* Top Bar */}
+      <header className="flex flex-col-reverse md:flex-row justify-between items-center mb-6">
+        {/* Search Bar Centered */}
+        <div className="w-full md:w-1/2 flex flex-col items-center">
+          <div className="flex items-center w-full space-x-4">
+            <input
+              type="text"
+              placeholder="Search events..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            />
+            <button className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition">
+              Search
+            </button>
+          </div>
         </div>
+
+        {/* Create Event Button */}
+        <button
+          onClick={() => setShowModal(true)}
+          className="absolute top-6 right-6 px-4 py-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600 transition"
+        >
+          Create Event
+        </button>
       </header>
 
       {/* Popular Events Section */}
@@ -113,6 +126,87 @@ const EventsDashboard = () => {
             ))}
         </div>
       </section>
+
+      {/* Create Event Modal */}
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
+          <div className="bg-white w-full max-w-lg rounded-lg shadow-lg p-6">
+            <h3 className="text-xl font-semibold text-gray-800 mb-4">
+              Create Event
+            </h3>
+            <form>
+              <div className="mb-4">
+                <label
+                  className="block text-sm font-medium text-gray-700"
+                  htmlFor="eventName"
+                >
+                  Event Name
+                </label>
+                <input
+                  type="text"
+                  id="eventName"
+                  className="w-full mt-1 p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:outline-none"
+                />
+              </div>
+              <div className="mb-4">
+                <label
+                  className="block text-sm font-medium text-gray-700"
+                  htmlFor="eventDate"
+                >
+                  Date
+                </label>
+                <input
+                  type="date"
+                  id="eventDate"
+                  className="w-full mt-1 p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:outline-none"
+                />
+              </div>
+              <div className="mb-4">
+                <label
+                  className="block text-sm font-medium text-gray-700"
+                  htmlFor="eventTime"
+                >
+                  Time
+                </label>
+                <input
+                  type="time"
+                  id="eventTime"
+                  className="w-full mt-1 p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:outline-none"
+                />
+              </div>
+              <div className="mb-4">
+                <label
+                  className="block text-sm font-medium text-gray-700"
+                  htmlFor="eventImage"
+                >
+                  Event Image URL
+                </label>
+                <input
+                  type="text"
+                  id="eventImage"
+                  placeholder="Paste image URL here"
+                  className="w-full mt-1 p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:outline-none"
+                />
+              </div>
+              <div className="flex justify-end space-x-4">
+                <button
+                  type="button"
+                  onClick={() => setShowModal(false)}
+                  className="px-4 py-2 bg-gray-300 text-gray-800 rounded-lg shadow hover:bg-gray-400 transition"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600 transition"
+                >
+                  Book Now
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
