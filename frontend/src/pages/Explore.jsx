@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 const Explore = () => {
+  const [openRSVPEvent, setOpenRSVPEvent] = useState(null); // Tracks the ID of the event being RSVP'd
+
   const [events, setEvents] = useState([]);
   const navigate = useNavigate();
   const dummyEvents = [
@@ -28,20 +30,21 @@ const Explore = () => {
     }
   ];
 
-  useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const response = await axios.get('http://localhost:5000/events');
-        setEvents(response.data);
-      } catch (error) {
-        console.error('Error fetching events:', error);
-      }
-    };
-    fetchEvents();
-  }, []);
+// RSVP 
   const handleRSVP = (eventId) => {
-    navigate(`/dashboard`, { state: { eventId } }); // Pass eventId to Dashboard
+    setOpenRSVPEvent(eventId); // Open RSVP popup for the specific event
   };
+
+  const closeRSVP = () => {
+    setOpenRSVPEvent(null); // Close the RSVP popup
+  };
+
+  const handleRSVPSubmit = (e) => {
+    e.preventDefault();
+    alert("RSVP submitted successfully!");
+    closeRSVP(); // Close the modal after submission
+  };
+// --------------------------------
   return (
     <div id="explore" className="bg-white dark:bg-gray-900 min-h-screen flex flex-col justify-center items-center py-8 animate-fadeIn">
       <h1 className="text-4xl font-extrabold text-center mb-8 dark:text-white">
@@ -78,9 +81,90 @@ const Explore = () => {
         <button className="px-4 py-2 bg-blue-500 text-white font-medium rounded-lg transition duration-300 transform hover:scale-110 hover:bg-blue-600">
           Details
         </button>
+        {/* to be modified for RSVP */}
         <button onClick={() => handleRSVP(event.id)} className="px-4 py-2 bg-green-500 text-white font-medium rounded-lg transition duration-300 transform hover:scale-110 hover:bg-orange-600">
               RSVP
             </button>
+
+      {/* RSVP Modal */}
+      {openRSVPEvent && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-md">
+          {/* Overlay */}
+          <div
+            className="fixed inset-0 bg-black bg-opacity-40"
+            onClick={closeRSVP}
+          ></div>
+
+          {/* Modal Content */}
+          <div
+            className="relative bg-white rounded-xl shadow-lg w-full max-w-md p-6 border-4 border-blue-500 animate-fadeIn"
+            style={{
+              animation: "scaleUp 0.4s ease-out",
+            }}
+          >
+            <h3 className="text-2xl font-semibold text-center text-gray-800 mb-4">
+              RSVP for {events.find((e) => e.id === openRSVPEvent)?.title}
+            </h3>
+            <form onSubmit={handleRSVPSubmit}>
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-600">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  required
+                  className="w-full px-3 py-2 rounded-md border focus:ring-blue-500 focus:border-blue-500"
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-600">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  required
+                  className="w-full px-3 py-2 rounded-md border focus:ring-blue-500 focus:border-blue-500"
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-600">
+                  Location
+                </label>
+                <input
+                  type="text"
+                  required
+                  className="w-full px-3 py-2 rounded-md border focus:ring-blue-500 focus:border-blue-500"
+                />
+              </div>
+              <div className="mb-4 flex items-start space-x-2">
+                <input
+                  type="checkbox"
+                  required
+                  className="h-4 w-4 text-blue-500 focus:ring-blue-500"
+                />
+                <label className="text-sm text-gray-600">
+                  I agree to the Eventify terms and conditions
+                </label>
+              </div>
+              <div className="flex justify-between mt-6">
+                <button
+                  type="button"
+                  onClick={closeRSVP}
+                  className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-700 transition duration-300"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300"
+                >
+                  Book
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
       </div>
     </div>
     ))}
