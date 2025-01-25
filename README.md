@@ -2,6 +2,8 @@
 # Full-Stack Event Management Platform
 
 ## 📖 Description
+
+[Live Demo](https://gregarious-swan-e5831d.netlify.app/)
 Eventify is a modern and interactive web application designed to simplify the process of discovering, hosting, and managing events. It combines a sleek, user-friendly frontend with a powerful backend, offering seamless functionality and a visually appealing experience across all devices. Built with a full-stack approach, Eventify ensures efficiency, scalability, and ease of use.
 
 ---
