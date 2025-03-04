@@ -14,7 +14,7 @@
 - 📩 **Contact:** Includes a contact form and newsletter subscription.  
 
 ## 👥 **User Instructions**  
-1. Open **Eventify** in your browser.  
+1. Open **Eventify** in your browser using this [link](https://shiny-buttercream-f01411.netlify.app/)  
 2. Browse available events or host a new event.  
 3. Interact with FAQs, testimonials, and the contact section.  
 4. Subscribe to the newsletter for updates.  
@@ -73,8 +73,5 @@
 - 📜 **License:** MIT License (see `LICENSE` file for details).  
 - 📧 **Contact:** For inquiries, email [kiplagatbethwelk@gmail.com](mailto:kiplagatbethwelk@gmail.com).  
 
+
 🎊 **Happy Event Planning!** 🎊  
-
----
-
-Let me know if you’d like any refinements! 🚀🔥
