@@ -1,7 +1,22 @@
 # 🎉 **Eventify**  
 
-## 📸 **Project Screenshot**  
-(Screenshot coming soon...)  
+## 📸 **Screenshots**  
+
+| Light mode | Dark mode |
+| -----------| --------- |
+| | |
+| Hero section |
+| ![Screenshot from 2025-03-19 09-37-59](https://github.com/user-attachments/assets/a71eaa3b-d854-4f06-a17a-131af700f035) | ![Screenshot from 2025-03-19 09-38-55](https://github.com/user-attachments/assets/a949a21f-a036-45de-ae58-3acf2c7f5857) |
+| | |
+| | |
+| About section |
+| ![Screenshot from 2025-03-19 09-38-09](https://github.com/user-attachments/assets/221a1f64-0e43-41f2-a6cf-885c69206649) | ![Screenshot from 2025-03-19 09-39-02](https://github.com/user-attachments/assets/2821e69b-33e9-4b88-bb66-5770a7ad7e0c) |
+| | |
+| | |
+| Partners |
+| ![Screenshot from 2025-03-19 09-38-22](https://github.com/user-attachments/assets/4b5dd3f8-74b8-4d07-827c-71932448a8c4) | ![Screenshot from 2025-03-19 09-39-09](https://github.com/user-attachments/assets/649c9f0e-897c-4328-a6b3-4786f91c2448) |
+
+
 
 ## 🔍 **Overview**  
 **Eventify** is a full-stack event management platform designed to simplify discovering, hosting, and managing events. It features a sleek and user-friendly frontend, backed by a powerful and scalable backend. The platform ensures a seamless experience across devices, offering smooth navigation, engaging animations, and interactive elements.  
@@ -23,12 +38,12 @@
 
 ### ⚙️ **Requirements**  
 #### **Frontend**  
-- 🟢 **Node.js (>=16.0.0)**  
-- ⚛️ **React.js**  
-- 🎨 **Tailwind CSS**  
+- 🟢 **Node.js**  (>=18.20.7)
+- ⚛️ **React.js**  (>=18.3.1) 
+- 🎨 **Tailwind CSS** (>=3.4.15)
 
 #### **Backend**  
-- 🐍 **Python (>=3.9)**  
+- 🐍 **Python**  (>=3.9.5)  
 - 🔥 **Flask**  
 - 🗄️ **MySQL**  
 
@@ -70,7 +85,7 @@
 
 ## 📌 **Additional Info**  
 - 🤝 **Contributions:** Open to feature suggestions and bug fixes.  
-- 📜 **License:** MIT License (see `LICENSE` file for details).  
+- 📜 **License:** License (see `LICENSE` file for details).  
 - 📧 **Contact:** For inquiries, email [kiplagatbethwelk@gmail.com](mailto:kiplagatbethwelk@gmail.com).  
 
 

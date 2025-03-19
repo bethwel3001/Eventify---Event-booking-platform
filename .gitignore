@@ -1,0 +1,7 @@
+.qodo
+
+# Python 
+*__pycache__
+*venv           # virtual environment
+*env            # environment variables
+
