@@ -23,12 +23,12 @@
 
 ### ⚙️ **Requirements**  
 #### **Frontend**  
-- 🟢 **Node.js (>=16.0.0)**  
-- ⚛️ **React.js**  
-- 🎨 **Tailwind CSS**  
+- 🟢 **Node.js**  (>=18.20.7)
+- ⚛️ **React.js**  (>=18.3.1) 
+- 🎨 **Tailwind CSS** (>=3.4.15)
 
 #### **Backend**  
-- 🐍 **Python (>=3.9)**  
+- 🐍 **Python**  (>=3.9.5)  
 - 🔥 **Flask**  
 - 🗄️ **MySQL**  
 
