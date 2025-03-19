@@ -70,7 +70,7 @@
 
 ## 📌 **Additional Info**  
 - 🤝 **Contributions:** Open to feature suggestions and bug fixes.  
-- 📜 **License:** MIT License (see `LICENSE` file for details).  
+- 📜 **License:** License (see `LICENSE` file for details).  
 - 📧 **Contact:** For inquiries, email [kiplagatbethwelk@gmail.com](mailto:kiplagatbethwelk@gmail.com).  
 
 
